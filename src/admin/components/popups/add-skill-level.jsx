@@ -3,7 +3,6 @@ import {getLevels} from "../../utils/fetches/levels/getLevels.js";
 import Loading from "../loading/Loading.jsx";
 import {addSkillLevel} from "../../utils/fetches/skills/addSkillLevel.js";
 import {editSkillLevel} from "../../utils/fetches/skills/editSkillLevel.js";
-import subscriptionPopupIcon from "/img-admin/subscription__popup-close.svg"
 
 // eslint-disable-next-line react/prop-types
 const AddSkillLevel = ({handlerSave, handlerClose, id, info = {}}) => {
@@ -70,7 +69,7 @@ const AddSkillLevel = ({handlerSave, handlerClose, id, info = {}}) => {
             <div className="ninjable__popup-inner">
                 <div className="ninjable__popup-header">
                     <span onClick={handlerClose} className="ninjable__popup-close edit-close">
-                        <img src={subscriptionPopupIcon} alt=""/>
+                        <img src="/img/subscription__popup-close.svg" alt=""/>
                     </span>
                     <h3>
                         {form.edit ? "EDIT SKILL’S LEVEL" : "ADD SKILL’S LEVEL" }

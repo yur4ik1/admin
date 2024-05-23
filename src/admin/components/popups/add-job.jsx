@@ -6,7 +6,6 @@ import {addJob} from "../../utils/fetches/positions/addJob.js";
 
 import Loading from "../loading/Loading.jsx";
 import {editJob} from "../../utils/fetches/positions/editJob.js";
-import subscriptionPopupIcon from "/img-admin/subscription__popup-close.svg"
 
 // eslint-disable-next-line react/prop-types
 const AddJob = ({handler, departmentId, handleOnChange, json = {}}) => {
@@ -242,7 +241,7 @@ const AddJob = ({handler, departmentId, handleOnChange, json = {}}) => {
             <div className="ninjable__popup-inner">
                 <div className="ninjable__popup-header">
                     <span onClick={handler} className="ninjable__popup-close">
-                        <img src={subscriptionPopupIcon} alt=""/>
+                        <img src="/img/subscription__popup-close.svg" alt=""/>
                     </span>
                     <div id='anchor'>
                         <h3>

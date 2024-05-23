@@ -1,7 +1,6 @@
 import {useState} from "react";
 import {editRequest} from "../../utils/fetches/requests/editRequest.js";
 import Loading from "../loading/Loading.jsx";
-import subscriptionPopupIcon from "/img-admin/subscription__popup-close.svg"
 
 // eslint-disable-next-line react/prop-types
 const EditRequest = ({id, handler, status, comment}) => {
@@ -30,7 +29,7 @@ const EditRequest = ({id, handler, status, comment}) => {
             <div className="ninjable__popup-inner">
                 <div className="ninjable__popup-header">
                     <span onClick={handler} className="ninjable__popup-close answer-edit-close">
-                        <img src={subscriptionPopupIcon} alt=""/>
+                        <img src="/img/subscription__popup-close.svg" alt=""/>
                     </span>
                     <h3>EDIT</h3>
                 </div>

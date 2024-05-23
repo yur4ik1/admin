@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getBillingData } from "../../utils/fetches/billing/getBillingData.js";
-import subscriptionPopupIcon from "/img-admin/subscription__popup-close.svg"
 
 const SubscriptionPopup = ({ handler }) => {
   const [billing, setBilling] = useState("");
@@ -30,7 +29,7 @@ const SubscriptionPopup = ({ handler }) => {
         <div className="light-bg"></div>
         <div className="ninjable__popup-header">
           <span onClick={handler} className="ninjable__popup-close">
-            <img src={subscriptionPopupIcon} alt="" />
+            <img src="/img/subscription__popup-close.svg" alt="" />
           </span>
           <div className="subscription__header-list">
             <div>

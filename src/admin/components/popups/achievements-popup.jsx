@@ -2,12 +2,8 @@ import {useEffect, useState} from "react";
 import Loading from "../loading/Loading.jsx";
 import {addBadge} from "../../utils/fetches/achievements/addBadge.js";
 import {editBadge} from "../../utils/fetches/achievements/editBadge.js";
-import  subscriptionPopupIcon from "/img-admin/subscription__popup-close.svg";
-import achieventsImg1  from "/img-admin/acievements-img-1.png";
-import achieventsImg2  from "/img-admin/acievements-img-2.png";
-import achieventsImg3  from "/img-admin/acievements-img-3.png";
 
-// eslint-disable-next-line react/prop-types8
+// eslint-disable-next-line react/prop-types
 const AchievementsPopup = ({handler, json = {}}) => {
     const [form, setForm] = useState(json);
     const [isLoading, setIsLoading] = useState(false);
@@ -113,7 +109,7 @@ const AchievementsPopup = ({handler, json = {}}) => {
             <div className="ninjable__popup-inner">
                 <div className="ninjable__popup-header">
                     <span onClick={handler} className="ninjable__popup-close add-badge-close">
-                        <img src={subscriptionPopupIcon} alt=""/>
+                        <img src="/img/subscription__popup-close.svg" alt=""/>
                     </span>
                     <h3>
                         {form.edit ? "EDIT BADGE" : "ADD BADGE"}
@@ -133,17 +129,17 @@ const AchievementsPopup = ({handler, json = {}}) => {
                                         <div className="new__custom-options">
                                             <div className="new__custom-option active" data-value="icon-1">
                                                 <div className="acievements-bg">
-                                                    <img src={achieventsImg1} alt=""/>
+                                                    <img src="/img/acievements-img-1.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div className="new__custom-option" data-value="icon-1">
                                                 <div className="acievements-bg">
-                                                    <img src={achieventsImg2} alt=""/>
+                                                    <img src="/img/acievements-img-2.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div className="new__custom-option" data-value="icon-1">
                                                 <div className="acievements-bg">
-                                                    <img src={achieventsImg3} alt=""/>
+                                                    <img src="/img/acievements-img-3.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div className="new__custom-option" data-value="icon-1">

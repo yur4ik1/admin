@@ -1,11 +1,12 @@
-import { Helmet } from "react-helmet";
+import {Helmet} from "react-helmet";
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({children}) => {
     return (
         <div className="wrapper">
-            {<Helmet>
-                <link rel="stylesheet" href={`/css/main.css`} />
-            </Helmet>}
+            { <Helmet>
+                <link rel="stylesheet" href="/css/main.css" />
+            </Helmet> }
+            
             {children}
         </div>
     );

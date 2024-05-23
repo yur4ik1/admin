@@ -11,7 +11,7 @@ export async function performSearch(search, status) {
     
     if (search || status) {
         if (search && search !== '') {
-            builtQuery += `lastname: {_ilike: "${search + '%'}"}`;
+            builtQuery += `firstname: {_ilike: "${search + '%'}"}`;
         }
         if (status && status !== '') {
             if (search && search !== '') builtQuery += `, `;

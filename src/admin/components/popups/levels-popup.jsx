@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import {getLevels} from "../../utils/fetches/levels/getLevels.js";
 import {pushLevels} from "../../utils/fetches/levels/pushLevels.js";
-import subscriptionPopupIcon from "/img-admin/subscription__popup-close.svg"
 
 // eslint-disable-next-line react/prop-types
 const LevelsPopup = ({handleSave, handleClose}) => {
@@ -36,7 +35,7 @@ const LevelsPopup = ({handleSave, handleClose}) => {
             <div className="ninjable__popup-inner">
                 <div className="ninjable__popup-header">
                     <span onClick={handleClose} className="ninjable__popup-close level-close">
-                        <img src={subscriptionPopupIcon} alt=""/>
+                        <img src="/img/subscription__popup-close.svg" alt=""/>
                     </span>
                     <h3>MODIFY LEVEL</h3>
                 </div>

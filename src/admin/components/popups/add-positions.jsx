@@ -4,7 +4,6 @@ import {addDepartment} from "../../utils/fetches/positions/addDepartments.js";
 
 import Loading from "../loading/Loading.jsx";
 import InfoPopup from "./info-popup.jsx";
-import subscriptionPopupIcon from "/img-admin/subscription__popup-close.svg"
 
 // eslint-disable-next-line react/prop-types
 const DepartamentElement = ({ data, onDelete }) => {
@@ -127,7 +126,7 @@ const AddPosition = ({handler, positions, handleOnChange, json = {}}) => {
             <div className="ninjable__popup-inner">
                 <div className="ninjable__popup-header">
                     <span onClick={handler} className="ninjable__popup-close">
-                        <img src={subscriptionPopupIcon} alt=""/>
+                        <img src="/img/subscription__popup-close.svg" alt=""/>
                     </span>
                     <div id="anchor">
                         <h3>{(form.edit && "EDIT DEPARTMENT") || "ADD DEPARTMENT"}</h3>

@@ -6,7 +6,6 @@ import {getJobs} from "../../utils/fetches/users/getJobs.js";
 import Loading from "../loading/Loading.jsx";
 import {addUser} from "../../utils/fetches/users/addUser.js";
 import {editUser} from "../../utils/fetches/users/editUser.js";
-import subscriptionPopupIcon from "/img-admin/subscription__popup-close.svg"
 
 // eslint-disable-next-line react/prop-types
 const AddUsers = ({handler, json = {}}) => {
@@ -171,17 +170,22 @@ const AddUsers = ({handler, json = {}}) => {
             handler();
         });
     }
-    
+
+    const getDepartmentTitleWithFirstChar = (title) => {
+        if (!title || typeof title !== 'string') return title;
+        const firstChar = title.charAt(0);
+        return `${firstChar}`;
+    }
+    console.log(form)
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const departmentsData = await getDepartments(departmentSearch);
                 setDepartments(departmentsData.data.departments);
                 setIsLoading(false);
-                
-                if (form.edit === true && departmentsData.data.departments.length > 0) {
-                    const department = departmentsData.data.departments.find(department => department.id === form.departmentId);
-                    
+
+                if (form.edit === true && departmentsData.data.departments.length > 0 && departmentSearch === "") {
+                    const department = departmentsData.data.departments.find(department => department.id === form.departmentId ?  department : false);
                     setForm(prevForm => ({
                         ...prevForm,
                         departmentName: department.title
@@ -214,7 +218,7 @@ const AddUsers = ({handler, json = {}}) => {
             <div className="ninjable__popup-inner">
                 <div className="ninjable__popup-header">
                     <span onClick={handler} className="ninjable__popup-close">
-                        <img src={subscriptionPopupIcon} alt=""/>
+                        <img src="/img/subscription__popup-close.svg" alt="close"/>
                     </span>
                     <div id='anchor'>
                         <h3>
@@ -225,13 +229,13 @@ const AddUsers = ({handler, json = {}}) => {
                 <div className="popup__users-content" id="mainPopup">
                     <div className="popup__users-form" id="popup">
                         <div className="popup__users-col">
-                            <label>* Full Name
+                            <label>Full Name
                                 <input onChange={(e) => setForm(
                                     {
                                         ...form,
                                         name: e.target.value
                                     }
-                                )} type="text" placeholder="Please let us know your full name"
+                                )} type="text" placeholder="30 Exp"
                                        className={`selected ${errors.name && 'error'} `}
                                        id="add-user-firstname"
                                        defaultValue={form.name}
@@ -245,22 +249,7 @@ const AddUsers = ({handler, json = {}}) => {
                                 <span class="let-know-required" id="add-user-lastname-required">Please let us know your last
                                     name</span>s
                             </label> -->*/}
-                            <label>* Email
-                                <input onChange={(e) => setForm(
-                                    {
-                                        ...form,
-                                        email: e.target.value
-                                    }
-                                )} type="text" placeholder="Please let us know the email"
-                                       className={`selected ${errors.email && 'error'} `}
-                                       id="add-user-email"
-                                       defaultValue={form.email}
-                                />
-                                <span className="let-know-required" id="add-user-email-required">Please let us know the
-                                email</span>
-                            </label>
-                            <label>
-                                * Department (Clan)
+                            <label>Department (Clan)
                                 <div
                                     className={`custom-select ${isDepartmentSelectActive && 'active'} ${errors.departmentId && 'error'}`}>
                                     <div onInput={(e) => setDepartmentSearch(e.target.innerText)}
@@ -268,7 +257,7 @@ const AddUsers = ({handler, json = {}}) => {
                                          className={`select-selected-new ${isDepartmentSelectActive && 'select-arrow-active'} ${form.departmentName && 'selected'}`}
                                          contentEditable={true} suppressContentEditableWarning={true}
                                          id="depatmentField">
-                                        {isDepartmentSelectActive ? '' : (form.departmentName ? form.departmentName : 'Please Select...')}
+                                        {isDepartmentSelectActive ? '' : (form.departmentName ? form.departmentName : 'Start typing to select a Clan')}
                                     </div>
                                     {isDepartmentSelectActive && (
                                         <div className="select-items">
@@ -279,6 +268,7 @@ const AddUsers = ({handler, json = {}}) => {
                                                         <div key={index}
                                                              onClick={() => handleSetDepartment(department.id, department.title)}
                                                              className="select-option department">
+                                                            <span className="select-option-first-char">{getDepartmentTitleWithFirstChar(department.title)}</span>
                                                             {department.title}
                                                         </div>
                                                     ))
@@ -289,14 +279,13 @@ const AddUsers = ({handler, json = {}}) => {
                                 </div>
                                 <span className="let-know">Please let us know the clan</span>
                             </label>
-                            <label>
-                                * Level
+                            <label>Level
                                 <div
                                     className={`custom-select ${isLevelSelectActive && 'active'} ${errors.levelId && 'error'}`}>
                                     <div
                                         className={`select-selected-new ${isLevelSelectActive && 'select-arrow-active'} ${form.levelTitle && 'selected'}`}
                                         id="levelField" onClick={() => setIsLevelSelectActive(!isLevelSelectActive)}>
-                                        {form.levelTitle ? form.levelTitle : 'Please Select...'}
+                                        {form.levelTitle ? form.levelTitle : 'Select Level'}
                                     </div>
                                     {isLevelSelectActive && (
                                         <div className="select-items" id='levelSelectOption'>
@@ -304,6 +293,7 @@ const AddUsers = ({handler, json = {}}) => {
                                                 <div key={level.id}
                                                      onClick={() => handleSetLevel(level.id, level.title)}
                                                      className="select-option level">
+                                                    <span className="select-option-first-char">{getDepartmentTitleWithFirstChar(level.title)}</span>
                                                     {level.title}
                                                 </div>
                                             ))}
@@ -312,15 +302,14 @@ const AddUsers = ({handler, json = {}}) => {
                                 </div>
                                 <span className="let-know">Please let us know the level</span>
                             </label>
-                            <label>
-                                * Manager
+                            <label>Manager
                                 <div
                                     className={`custom-select ${isManagerSelectActive && 'active'} ${errors.managerId && 'error'}`}>
                                     <div onInput={(e) => setManagerSearch(e.target.innerText)}
                                          onClick={() => setIsManagerSelectActive(!isManagerSelectActive)}
                                          className={`select-selected-new ${isManagerSelectActive && 'select-arrow-active'} ${form.managerName && 'selected'}`}
                                          id="managerField" contentEditable={true} suppressContentEditableWarning={true}>
-                                        {isManagerSelectActive ? '' : form.managerName ? form.managerName : 'Please Select...'}
+                                        {isManagerSelectActive ? '' : form.managerName ? form.managerName : 'Start typing to select a Manager'}
                                     </div>
                                     {
                                         isManagerSelectActive > 0 && (
@@ -342,8 +331,7 @@ const AddUsers = ({handler, json = {}}) => {
                             </label>
                             {
                                 !form.edit && (
-                                    <label>
-                                        * Password
+                                    <label>Password
                                         <input className={`password ${errors.password && 'error'}`} type={passwordType}
                                                id="password" name="password"
                                                placeholder="*************************"
@@ -362,16 +350,29 @@ const AddUsers = ({handler, json = {}}) => {
                                 )
                             }
                         </div>
-                        
+
                         <div className="popup__users-col popup__users-col-second">
-                            <label>
-                                * Job (Rank)
+                            <label>Email
+                                <input onChange={(e) => setForm(
+                                    {
+                                        ...form,
+                                        email: e.target.value
+                                    }
+                                )} type="text" placeholder="example@mail.com"
+                                       className={`selected ${errors.email && 'error'} `}
+                                       id="add-user-email"
+                                       defaultValue={form.email}
+                                />
+                                <span className="let-know-required" id="add-user-email-required">Please let us know the
+                                email</span>
+                            </label>
+                            <label>Job (Rank)
                                 <div
-                                    className={`custom-select ${isJobSelectActive && 'active'} ${errors.jobId && 'error'}`}>
+                                    className={`custom-select ${isJobSelectActive && form.departmentName && 'active'} ${errors.jobId && 'error'}`}>
                                     <div onClick={() => setIsJobSelectActive(!isJobSelectActive)}
-                                         className={`select-selected-new ${isJobSelectActive && 'select-arrow-active'} ${form.jobTitle && 'selected'}`}
-                                         contentEditable={true} suppressContentEditableWarning={true} id="jobField">
-                                        {form.departmentName ? (isJobSelectActive ? (form.jobTitle ? form.jobTitle : '') : (form.jobTitle ? form.jobTitle : 'Please Select')) : 'Select Department First'}
+                                         className={`select-selected-new ${isJobSelectActive && form.departmentName && 'select-arrow-active'} ${form.jobTitle && 'selected'}`}
+                                         contentEditable={false} suppressContentEditableWarning={true} id="jobField">
+                                        {form.departmentName ? (isJobSelectActive ? (form.jobTitle ? form.jobTitle : '') : (form.jobTitle ? form.jobTitle : 'Please Select')) : 'Start typing to select a Rank'}
                                     </div>
                                     {(isJobSelectActive && form.departmentName) && (
                                         <div className="select-items">
@@ -385,6 +386,8 @@ const AddUsers = ({handler, json = {}}) => {
                                                         <div key={job.id}
                                                              onClick={() => handleSetJob(job.id, job.title)}
                                                              className="select-option job">
+                                                            <span
+                                                                className="select-option-first-char">{getDepartmentTitleWithFirstChar(job.title)}</span>
                                                             {job.title}
                                                         </div>
                                                     ))
@@ -395,20 +398,21 @@ const AddUsers = ({handler, json = {}}) => {
                                 </div>
                                 <span className="let-know">Please let us know the rank</span>
                             </label>
-                            
+
                             <label>
-                                Title
+                                <div>
+                                    Title <span className="lable-span">(Optional)</span>
+                                </div>
                                 <input onChange={(e) => setForm(
                                     {
                                         ...form,
                                         title: e.target.value
                                     }
-                                )} className={`selected`} type="text" placeholder="Manager Developer"/>
+                                )} className={`selected`} type="text" placeholder="Create a Title"/>
                                 <span className="let-know">Please let us know the rank</span>
                             </label>
-                            
-                            <label>
-                                * Permission Role
+
+                            <label>Permission Role
                                 <div
                                     className={`custom-select ${isPermissionRoleSelectActive && 'active'} ${errors.role && 'error'}`}>
                                     <div
@@ -416,7 +420,7 @@ const AddUsers = ({handler, json = {}}) => {
                                         id="permissionRole"
                                         onClick={() => setIsPermissionRoleSelectActive(!isPermissionRoleSelectActive)}
                                     >
-                                        {form.role ? form.role : 'Please Select...'}
+                                        {form.role ? form.role : 'Select Role'}
                                     </div>
                                     {
                                         isPermissionRoleSelectActive && (
@@ -431,14 +435,13 @@ const AddUsers = ({handler, json = {}}) => {
                                         )
                                     }
                                 </div>
-                                
+
                                 <span className="let-know">Please let us know the role</span>
                             </label>
-                            
-                            {
-                                form.edit && (
+
+
                                     <label>
-                                        * Status
+                                        Status
                                         <div
                                             className={`custom-select ${isStatusSelectActive && 'active'} ${errors.status && 'error'}`}>
                                             <div
@@ -461,12 +464,21 @@ const AddUsers = ({handler, json = {}}) => {
                                         </div>
                                         <span className="let-know" id="roleAdd">Please let us know the status</span>
                                     </label>
-                                )
-                            }
+
+
                         </div>
                     </div>
                     <div className="popup__users-footer">
-                        <button onClick={form.edit ? handleEditUser : handleAddUser} className="btn user-add" type="button">Add</button>
+                        <button
+                            type="button"
+                            className="undo-button"
+                            onClick={handler}
+                        >
+                            Cancel
+                        </button>
+                        <button onClick={form.edit ? handleEditUser : handleAddUser} className="btn user-add"
+                                type="button">{form.edit ? "Edit User" : "Add User"}
+                        </button>
                     </div>
                 </div>
             </div>

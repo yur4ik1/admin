@@ -7,7 +7,8 @@ export async function getManagers(search) {
     let whereSearch = '';
     
     if (search !== '') {
-        whereSearch = `, firstname: {_ilike: "%${search}%"},`;
+        // whereSearch = `, firstname: {_ilike: "%${search}%"},`;
+        whereSearch = `, firstname: {_ilike: "${search.charAt(0)}%"}`;
     }
     
     const query = `query getManager {

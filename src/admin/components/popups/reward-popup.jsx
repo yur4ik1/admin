@@ -2,7 +2,6 @@ import {useState} from "react";
 import {addReward} from "../../utils/fetches/inventory/addReward.js";
 import {editReward} from "../../utils/fetches/inventory/editReward.js";
 import Loading from "../loading/Loading.jsx";
-import subscriptionPopupIcon from "/img-admin/subscription__popup-close.svg"
 
 const RewardPopup = ({handler, json = {}}) => {
     const [form, setForm] = useState(json);
@@ -66,7 +65,7 @@ const RewardPopup = ({handler, json = {}}) => {
             <div className="ninjable__popup-inner">
                 <div onClick={handler} className="ninjable__popup-header">
                     <span className="ninjable__popup-close add-revard-close">
-                        <img src={subscriptionPopupIcon} alt=""/>
+                        <img src="/img/subscription__popup-close.svg" alt=""/>
                     </span>
                     <h3>
                         {form.edit ? "EDIT REWARD" : "ADD REWARD"}

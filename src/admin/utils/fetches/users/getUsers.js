@@ -6,15 +6,15 @@ export async function getUsers(limit, offset, order, search, status) {
     
     let builtQuery = ``;
     
-    if (search || status) {
+    if (search || status !== undefined) {
         if (search && search !== '') {
             builtQuery += `lastname: {_ilike: "${search + '%'}"}`;
         }
-        if (status && status !== '') {
+        if (status !== undefined && status !== '') {
             if (search && search !== '') builtQuery += `, `;
-            
+
             let statusQuery = status ? 1 : 0;
-            
+
             builtQuery += `status: {_eq: ${statusQuery}}`;
         }
     }

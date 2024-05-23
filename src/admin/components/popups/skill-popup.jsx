@@ -3,8 +3,6 @@ import {useEffect, useState} from "react";
 import {getDepartments} from "../../utils/fetches/users/getDepartments.js";
 import Loading from "../loading/Loading.jsx";
 import {addSkill} from "../../utils/fetches/skills/addSkills.js";
-import subscriptionPopupIcon from "/img-admin/subscription__popup-close.svg"
-
 
 // eslint-disable-next-line react/prop-types
 const SkillPopup = ({handler}) => {
@@ -67,7 +65,7 @@ const SkillPopup = ({handler}) => {
             <div className="ninjable__popup-inner">
                 <div className="ninjable__popup-header">
                     <span onClick={handler} className="ninjable__popup-close add-skill-close">
-                        <img src={subscriptionPopupIcon} alt=""/>
+                        <img src="/img/subscription__popup-close.svg" alt=""/>
                     </span>
                     <h3>ADD SKILL</h3>
                 </div>

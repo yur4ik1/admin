@@ -1,14 +1,10 @@
 import { useState } from "react";
-import headerLogo from "/img-admin/header-logo.svg"
-import avatarImg from "/img-admin/avatar.svg"
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { logoutUser } from "../../../portal/store/actions/user";
-import { showOverlay } from "../../../portal/store/actions/global";
+import { useNavigate } from "@tanstack/react-router";
+import { getRoute } from "../../utils/routes/getRoute";
 
 const Header = () => {
     const [profilePopup, setProfilePopup] = useState(false);
-    const dispatch = useDispatch()
+    const navigate = useNavigate();
 
     const toggleProfilePopup = (event) => {
         event.preventDefault();
@@ -17,23 +13,20 @@ const Header = () => {
 
     const handleLogOut = (event) => {
         event.preventDefault();
-        // document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-
-        dispatch(showOverlay())
-        dispatch(logoutUser())
-        window.location.replace(`${import.meta.env.VITE_APP_AUTH_DOMAIN}/login`)
+        document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        navigate({ to: getRoute('/login') });
     }
 
     return (
         <header className="header">
             <div className="container">
-                <Link className="header__logo" to={'/'}>
-                    <img src={headerLogo} alt="logo" />
-                </Link>
+                <a className="header__logo" href="/">
+                    <img src="/img/header-logo.svg" alt="logo" />
+                </a>
                 <div className="header__profile">
                     <a onClick={toggleProfilePopup} className="header__avatar" href="#">
                         <div className="avatar-img">
-                            <img src={avatarImg} alt="avatar" />
+                            <img src="/img/avatar.svg" alt="avatar" />
                         </div>
                     </a>
                     {profilePopup && (

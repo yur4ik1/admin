@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { router } from "../../../utils/routes";
+import { Link } from "@tanstack/react-router";
+import { getRoute } from "../../utils/routes/getRoute";
 
 const Sidebar = () => {
-    const [currentPath] = useState(window.location.pathname);
+    const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
     useEffect(() => {
         const sidemenuItem = document.querySelectorAll('.sidemenu__item');
@@ -22,32 +22,34 @@ const Sidebar = () => {
         {
             title: 'Company',
             subMenu: [
-                { title: 'Account Settings', link: router.adminBase },
-                { title: 'Branding', link: router.adminBranding },
-                { title: 'Subscription', link: router.adminSubscription },
-                { title: 'Billing', link: router.adminBilling },
+                { title: 'Account Settings', link: getRoute('/') },
+                { title: 'Branding', link: getRoute('/branding') },
+                { title: 'Subscription', link: getRoute('/subscription') },
+                { title: 'Billing', link: getRoute('/billing') },
             ],
         },
         {
             title: 'Directory',
             subMenu: [
-                { title: 'Users', link: router.adminUsers },
-                { title: 'Positions', link: router.adminPositions },
-                { title: 'Levels', link: router.adminLevels },
-                { title: 'Skills', link: router.adminSkills },
-                { title: 'Achievements', link: router.adminAchievements },
-                { title: 'Transactions', link: router.adminTransactions },
+                { title: 'Users', link: getRoute('/users') },
+                { title: 'Positions', link: getRoute('/positions') },
+                { title: 'Levels', link: getRoute('/levels') },
+                { title: 'Skills', link: getRoute('/skills') },
+                { title: 'Achievements', link: getRoute('/achievements') },
+                { title: 'Transactions', link: getRoute('/transactions') },
             ],
         },
         {
             title: 'Rewards',
             subMenu: [
-                { title: 'Inventory', link: router.adminInventory },
-                { title: 'Requests', link: router.adminRequests },
+                { title: 'Inventory', link: getRoute('/inventory') },
+                { title: 'Requests', link: getRoute('/requests') },
             ],
         },
         {
-            title: 'Integrations', link: router.adminIntegrations, soon: true,
+            title: 'Integrations',
+            link: getRoute('/integrations'),
+            soon: true,
         },
     ];
 
@@ -57,17 +59,13 @@ const Sidebar = () => {
                 {menuItems.map((item, index) => (
                     <li key={index} className={`sidemenu__item ${item.subMenu && item.subMenu.some(subItem => currentPath === subItem.link) && 'active'} ${currentPath === item.link && 'active'}`}>
                         {item.link ? (
-                            <>
-                                <Link className={`sidemenu__item-link ${item.soon && 'soon'}`} to={item.link}>
-                                    {item.soon ? (<p>{item.title} <br /><span>Coming soon</span></p>) : (item.title)}
-                                </Link>
-                            </>
+                            <Link className={`sidemenu__item-link ${item.soon && 'soon'}`} to={item.link}>
+                                {item.soon ? (<p>{item.title} <br /><span>Coming soon</span></p>) : (item.title)}
+                            </Link>
                         ) : (
-                            <>
-                                <Link className={`sidemenu__item-link ${item.soon && 'soon'}`} to={item.link}>
-                                    {item.soon ? (<p>{item.title} <br /><span>Coming soon</span></p>) : (item.title)}
-                                </Link>
-                            </>
+                            <Link className={`sidemenu__item-link ${item.soon && 'soon'}`} to={item.link}>
+                                {item.soon ? (<p>{item.title} <br /><span>Coming soon</span></p>) : (item.title)}
+                            </Link>
                         )}
 
                         {item.subMenu && (
