@@ -1,0 +1,23 @@
+.overlay {
+    position: absolute;
+    z-index: 999;
+    filter: blur(0.7px);
+    width: 100vw;
+    height: 100vh;
+}
+
+.integrations{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    overflow: hidden;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+}

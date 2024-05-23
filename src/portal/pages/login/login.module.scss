@@ -1,0 +1,22 @@
+.header {
+    width: 100%;
+    background: url("/img/header-background.webp") no-repeat center top / cover;
+    background-color: rgb(104 117 145 / 80%);
+    background-blend-mode: multiply;
+    box-shadow: 0vw 0vw 2.737vw rgba(6, 8, 13, 0.75);
+    height: 6.834vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 11.262vw;
+    padding-right: 11.262vw;
+    position: relative;
+    z-index: 9999;
+
+    .header__logo {
+        img {
+            width: 18.338vw;
+            height: 4.389vw;
+        }
+    }
+}

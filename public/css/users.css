@@ -1,0 +1,301 @@
+.soon {
+    display: block;
+    line-height: 1vw !important;
+}
+
+.soon span {
+    font-size: 0.65vw;
+}
+
+.select-option {
+    max-width: 100% !important;
+}
+
+.custom-select_new {
+    height: 100%;
+    position: relative;
+    display: inline-block;
+}
+
+.custom-select_new:hover {
+    border-radius: 0.417vw;
+    box-shadow: 0vw 0vw 0.156vw 0.052vw #869DC8;
+    transition: 0.2s !important;
+}
+
+.custom-select_new::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2.7vw;
+    height: .052vw;
+    background: #e4e8ee;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    top: 1.4vw;
+    left: 84%;
+    display: block;
+    z-index: 99999999;
+    left: 81.8%;
+}
+
+.custom-scrollbar-new {
+    max-height: calc(2.242vw * 5);
+    overflow-y: scroll;
+    margin-right: 1.199vw;
+}
+
+.custom-scrollbar-new::-webkit-scrollbar {
+    width: .313vw;
+}
+
+.custom-scrollbar-new::-webkit-scrollbar-thumb {
+    width: .313vw;
+    background: #b0bfde;
+    mix-blend-mode: normal;
+    opacity: .6;
+    border-radius: 1.043vw;
+}
+
+.custom-scrollbar-new::-webkit-scrollbar-track {
+    background: -webkit-gradient(linear, left bottom, left top, from(rgb(238, 239, 243)), to(rgb(224, 228, 236))), #1f1f23;
+    background: linear-gradient(0deg, rgb(238, 239, 243), rgb(224, 228, 236)), #1f1f23;
+    mix-blend-mode: normal;
+    border-radius: 1.043vw;
+    margin-block: 10px;
+}
+
+.custom-scrollbar-new::-webkit-scrollbar-button {
+    display: none;
+}
+
+.select-arrow-active {
+    border-bottom: none !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.select-arrow-active::after {
+    transform: rotate(180deg) !important;
+}
+
+.popup__users-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.popup__users-footer button {
+    font-size: 0.834vw;
+    line-height: 0.938vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.02vw;
+    color: #FFFFFF;
+    width: 8.238vw;
+    height: 2.503vw;
+    background: #869DC8;
+    box-shadow: 0vw 0vw 0.261vw 0.052vw rgba(142, 161, 186, 0.6);
+    border-radius: 0.521vw;
+    margin-top: 1.1vw;
+}
+
+.let-know-required {
+    display: none;
+    font-weight: 400;
+    font-size: 0.678vw;
+    line-height: 0.73vw;
+    letter-spacing: 0.01vw;
+    color: red;
+    margin-top: 0.782vw;
+}
+
+.let-know-required.active {
+    display: block;
+}
+
+.error {
+    border: 1px solid red;
+    border-radius: 0.417vw;
+}
+
+.row-item:nth-child(even) {
+    background-color: rgba(233, 237, 242, .45);
+}
+
+.row-header :nth-child(2) {
+    width: 12.11vw !important;
+}
+
+.row-header :nth-child(3) {
+    width: 15.4vw !important;
+}
+
+.search-input-block {
+    display: flex;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-input:hover {
+    border-radius: 0.417vw;
+    box-shadow: 0vw 0vw 0.156vw 0.052vw #d7dee6;
+    transition: 0.2s !important;
+}
+
+.filterLabel {
+    width: 100%;
+    height: 100%;
+}
+
+#selectItemsFilter .select-option {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.search-input-selector {
+    position: absolute;
+    width: 100%;
+    top: 95%;
+    background-color: white;
+    z-index: 99;
+    line-height: 0;
+    border: 0.052vw solid #d7dee6;
+    box-shadow: 0vw 0.1vw 0.126vw 0.032vw #d7dee6;
+    border-radius: 0.417vw;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.search-input-selector label {
+    font-family: Rubik;
+    font-weight: 300;
+    font-size: .782vw;
+    line-height: .834vw;
+    letter-spacing: .01vw;
+    color: #869dc8;
+    padding-left: 3.91vw;
+    padding-right: 3.91vw;
+    padding-top: 0.626vw;
+    padding-bottom: 0.521vw;
+    cursor: pointer;
+    color: #869dc8;
+    line-height: .834vw;
+}
+
+.search-input-selector label:hover {
+    background: rgba(233, 237, 242, 0.7);
+}
+
+.closeFilter {
+    position: absolute;
+    right: 0.5vw;
+    top: 0.8vw;
+    z-index: 9999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 1vw;
+    background: #fff;
+    cursor: pointer;
+    border: none !important;
+}
+
+.closeFilter img {
+    width: 1.033vw;
+    height: 1.033vw;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.filterLabel {
+    width: 100%;
+    height: 100%;
+}
+
+#selectItemsFilter .select-option {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.cellId {
+    cursor: pointer;
+}
+
+.selected {
+    color: #1b2438 !important;
+    font-family: "Roboto", sans-serif !important;
+    font-weight: 400 !important;
+}
+
+
+.add-badge-popup .custom-select .select-selected-new {
+    width: 100%;
+    padding-bottom: 0.798vw;
+}
+
+.select-selected-new {
+    position: relative;
+    padding-top: 0.938vw;
+    padding-bottom: 0.938vw;
+    padding-left: 2.086vw;
+    padding-right: 1.199vw;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: .782vw;
+    line-height: .73vw;
+    letter-spacing: .01vw;
+    color: #b9babe;
+    background: #fff;
+    border: 0.052vw solid #d7dee6;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    border-radius: 0.417vw;
+    text-transform: capitalize;
+}
+
+.select-selected-new::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1.199vw;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 0.261vw solid rgba(0, 0, 0, 0);
+    border-right: 0.261vw solid rgba(0, 0, 0, 0);
+    border-top: 0.261vw solid #555;
+}
+
+.row-header .id {
+    cursor: pointer;
+}
+
+#add-users_popup {
+    z-index: 99999 !important;
+}
+
+.custom-select.active .select-selected-new,
+.filter-select.active .select-selected {
+    border-radius: 0.417vw 0.417vw 0 0 !important;
+    border-bottom: none !important;
+}
+
+.custom-select .select-items {
+    background: #FFFFFF;
+}

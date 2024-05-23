@@ -1,0 +1,43 @@
+.menu-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+
+    li {
+        display: flex;
+        margin-right: 3.233vw;
+
+        a {
+            font-family: "Roboto";
+            font-weight: 500;
+            font-size: 1.303vw;
+            line-height: 2.503vw;
+            letter-spacing: 0.278vw;
+            color: #ffffff;
+        }
+    }
+
+    li.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            color: #869dc8;
+        }
+
+        &::after {
+            content: "";
+            width: 100%;
+            height: 0.313vw;
+            background: linear-gradient(0deg, #869dc8, #869dc8), #d6d6d6;
+            display: block;
+        }
+    }
+}

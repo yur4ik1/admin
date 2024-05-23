@@ -1,0 +1,185 @@
+.settings {
+    padding-top: 10.688vw;
+    padding-bottom: 2.731vw;
+
+    .container {
+        max-width: 66.163vw;
+    }
+
+    &__content {
+        width: 100%;
+        height: 54.849vw;
+        background: #1d2438;
+        box-shadow: 0vw 0vw 1.303vw 0.261vw rgba(6, 8, 13, 0.75);
+        border-radius: 1.356vw;
+        padding-top: 3.076vw;
+        position: relative;
+        padding-left: 11.105vw;
+        padding-right: 10.897vw;
+        padding-bottom: 5.005vw;
+
+        .leaves {
+            background: url("/img/leaves-settings.webp") no-repeat center top / cover;
+            width: 100%;
+            height: 14.911vw;
+            position: absolute;
+            left: 0;
+            top: 18.214vw;
+        }
+
+        .top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 5.057vw;
+
+            &::after {
+                content: "";
+                background: url(/img/settings-line.svg) no-repeat center top/cover;
+                width: 44.161vw;
+                height: 0.104vw;
+                margin-top: 2.711vw;
+            }
+        }
+
+        h1 {
+            font-family: "Roboto";
+            font-weight: 500;
+            font-size: 1.303vw;
+            line-height: 1.147vw;
+            letter-spacing: 0.278vw;
+            color: #fff;
+            text-align: center;
+        }
+    }
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 3.285vw;
+
+        .wrap {
+            display: flex;
+        }
+
+        .avatar {
+            width: 4.901vw;
+            height: 4.901vw;
+            border: 0.104vw solid #869dc8;
+            box-shadow: 0vw 0vw 0.313vw 0.104vw rgba(47, 196, 211, 0.75);
+            border-radius: 1.147vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.825vw;
+
+            img {
+                width: 3.483vw;
+                height: 3.255vw;
+            }
+        }
+
+        .title {
+            h2 {
+                font-weight: 700 !important;
+                font-size: 1.564vw;
+                line-height: 2.503vw;
+                letter-spacing: 0.021vw;
+                background: linear-gradient(90deg, #35b6f1 0%, #4cd4ec 116.58%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
+
+            p {
+                font-size: 1.043vw;
+                line-height: 1.703vw;
+                letter-spacing: 0.014vw;
+                color: #ffffff;
+            }
+        }
+
+        .status {
+            font-size: 1.043vw;
+            line-height: 2.503vw;
+            letter-spacing: 0.014vw;
+            color: #ffffff;
+
+            span {
+                color: #869dc8;
+            }
+        }
+    }
+
+    &__form-wrap {
+        h5 {
+            font-size: 1.043vw;
+            line-height: 2.503vw;
+            letter-spacing: 0.014vw;
+            color: #ffffff;
+            margin-bottom: 1.251vw;
+        }
+
+        .field {
+            position: relative;
+          
+            p {
+              font-size: 0.782vw;
+              line-height: 1.147vw;
+              letter-spacing: 0.01vw;
+              color: #ffffff;
+              margin-bottom: 0.782vw;
+              color: #869dc8;
+          
+              span {
+                color: #fff;
+              }
+            }
+          
+            .let-know {
+              font-weight: 300;
+              font-size: 0.678vw;
+              line-height: 1.147vw;
+              letter-spacing: 0.008vw;
+              color: red;
+              position: absolute;
+              top: 5.021vw;
+              left: 0;
+              opacity: 0;
+              visibility: hidden;
+            }
+          
+            .let-know.active {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+    }
+
+    &__form {
+        .field {
+            margin-bottom: 2.45vw;
+            position: relative;
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: center;
+            margin-top: 4.797vw;
+
+            button {
+                font-size: 0.938vw;
+                line-height: 1.043vw;
+                width: 11.731vw;
+                height: 2.503vw;
+                letter-spacing: 0.016vw;
+            }
+        }
+    }
+}
+
+
+  
